@@ -5,11 +5,14 @@
   <title>RAM Comparison</title>
   <!-- Include Bootstrap CSS file -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/tables.css') }}">
 </head>
 <body>
 
+  {% include 'base.html' %}
   <div class="container">
-    <h1>Model Comparison</h1>
+    <h1>Display Comparison</h1>
 
     <form id="brandForm" action="{{ url_for('display_comparison') }}" method="POST">
         <div id="brandFields">
@@ -50,30 +53,32 @@
 </div>
 {% if data is not none %}
 <h2>Comparison Results:</h2>
-<table class="table">
-<thead>
-  <tr>
-    <th>Display Type</th>
-    <th>Mean Price</th>
-    <th>Brand(Lesser than mean)</th>
-    <th>Brand(More than mean)</th>
-    <th>Mean Display Size</th>
-    <th>Camera Specs(Most)</th>
-    
-   
-  </tr>
-</thead>
-<tbody>
-  {% for row in data.iterrows() %}
-  <tr>
-    <td>{{ row[0] }}</td>
-    {% for value in row[1] %}
-    <td>{{ value }}</td>
-    {% endfor %}
-  </tr>
-  {% endfor %}
-</tbody>
-</table>
+<div style="padding: 20px;padding-top: 0%;">
+  <table class="table table-dark table-striped jambo_table bulk_action table-credit">
+    <thead>
+      <tr>
+        <th>Display Type</th>
+        <th>Mean Price</th>
+        <th>Brand(Lesser than mean)</th>
+        <th>Brand(More than mean)</th>
+        <th>Mean Display Size</th>
+        <th>Camera Specs(Most)</th>
+        
+       
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in data.iterrows() %}
+      <tr>
+        <td>{{ row[0] }}</td>
+        {% for value in row[1] %}
+        <td>{{ value }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+    </table>
+</div>
 {% endif %}
     
 </div>

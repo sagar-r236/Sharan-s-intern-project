@@ -1,0 +1,16 @@
+.space-filler {
+    height: 30vh;
+    background-image: url('https://www.npd.com/wp-content/uploads/2021/05/mobile-banner-1440x480.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.space-filler > h1 {
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+}

@@ -19,9 +19,9 @@ app = Flask(__name__)
 dash_app = dash.Dash(__name__, server=app, url_base_pathname='/dashboard/' , external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 #df = pd.read_csv('/home/sharanbalakrishnan/Desktop/InternProj/df2.csv')
-df = pd.read_csv('/home/sharanbalakrishnan/Desktop/InternProj/data/data_dash.csv')
+df = pd.read_csv('./data/data_dash.csv')
 
-data = pd.read_csv('/home/sharanbalakrishnan/Desktop/InternProj/data/app_latest.csv')
+data = pd.read_csv('./data/app_latest.csv')
 
 brand_list = sorted(data['Brand'].unique())
 display_types = sorted(data['Display_Type'].unique())
@@ -231,12 +231,12 @@ def update_price_graph(selected_brand):
     return figure
 
 #model = joblib.load('model.joblib')
-ct = joblib.load('/home/sharanbalakrishnan/Desktop/InternProj/data/column_transformer.pkl')
+ct = joblib.load('./data/column_transformer.pkl')
 
 #with open(r'/home/sharanbalakrishnan/Desktop/InternProj/data/my_rf.bin', 'rb') as f:
     #model = pickle.load(f)
 
-model = tf.keras.models.load_model('/home/sharanbalakrishnan/Desktop/InternProj/data/my_model_tf.h5')
+model = tf.keras.models.load_model('./data/my_model_tf.h5')
 
 
 
